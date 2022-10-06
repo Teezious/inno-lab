@@ -1,0 +1,3 @@
+FROM mysql:5.7
+
+ADD sql/sens_mednanny.sql /docker-entrypoint-initdb.d
