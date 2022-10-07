@@ -1,10 +1,1 @@
-WebContent
 *.odt
-*.pem
-*.png
-*.cnf
-*#*
-*binlog*
-*ib*
-*undo*
-*mysql*
