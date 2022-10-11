@@ -22,11 +22,15 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./WebContent:/usr/local/tomcat/webapps/
+      - ./WebContent:/usr/local/tomcat/webapps
       - /etc/localtime:/etc/localtime:ro
     depends_on:
       - db
-    restart: "no" 
+    restart: "no"
+    environment:
+      JDBC_URL: jdbc:mysql://db:3306/mednanny?connectTimeout=0&amp;socketTimeout=0&amp;autoReconnect=true
+      JDBC_USER: testuser
+      JDBC_PASS: root 
     
   adminer: 
     container_name: adminer
