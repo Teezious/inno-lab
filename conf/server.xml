@@ -40,7 +40,7 @@
     -->
         <Resource name="UserDatabase" auth="Container" type="org.apache.catalina.UserDatabase" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" pathname="conf/tomcat-users.xml" />
 
-         <!--<Resource name="jdbc/db" global="jdbc/db" auth="Container" type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/mednanny" username="testuser" password="root" maxActive="100" maxIdle="20" minIdle="5" maxWaitMillis="10000"/> -->
+        <!--<Resource name="jdbc/db" global="jdbc/db" auth="Container" type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/mednanny" username="testuser" password="root" maxActive="100" maxIdle="20" minIdle="5" maxWaitMillis="10000"/> -->
     </GlobalNamingResources>
 
     <!-- A "Service" is a collection of one or more "Connectors" that share
@@ -116,7 +116,7 @@
                 <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
             </Realm>
 
-            <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true" createDirs="true" workDir="webapps">
+            <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true" createDirs="true">
 
                 <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->

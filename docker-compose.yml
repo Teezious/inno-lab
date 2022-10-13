@@ -22,10 +22,10 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./WebContent:/usr/local/tomcat/webapps
+      - ./WebContent:/usr/local/tomcat/webapps/
+      - /etc/localtime:/etc/localtime:ro
       - ./conf/context.xml:/usr/local/tomcat/conf/context.xml
       - ./conf/server.xml:/usr/local/tomcat/conf/server.xml 
-      - /etc/localtime:/etc/localtime:ro
     depends_on:
       - db
     restart: "no"
