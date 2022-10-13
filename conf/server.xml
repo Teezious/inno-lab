@@ -39,8 +39,34 @@
          UserDatabaseRealm to authenticate users
     -->
         <Resource name="UserDatabase" auth="Container" type="org.apache.catalina.UserDatabase" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" pathname="conf/tomcat-users.xml" />
-
-        <!--<Resource name="jdbc/db" global="jdbc/db" auth="Container" type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/mednanny" username="testuser" password="root" maxActive="100" maxIdle="20" minIdle="5" maxWaitMillis="10000"/> -->
+        
+        <!-- <Resource name="jdbc/mednanny"
+          auth="Container"
+          type="javax.sql.DataSource"
+          factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+          testWhileIdle="true"
+          testOnBorrow="true"
+          testOnReturn="false"
+          validationQuery="SELECT 1"
+          validationInterval="30000"
+          timeBetweenEvictionRunsMillis="30000"
+          maxActive="100"
+          minIdle="10"
+          maxWait="10000"
+          initialSize="10"
+          removeAbandonedTimeout="60"
+          removeAbandoned="true"
+          logAbandoned="true"
+          minEvictableIdleTimeMillis="30000"
+          jmxEnabled="true"
+          jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
+            org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
+          username="${JDBC_USER}"
+          password="${JDBC_PASS}"
+          driverClassName="com.mysql.jdbc.Driver"
+          url="${JDBC_URL}"/>  -->
+    
+    
     </GlobalNamingResources>
 
     <!-- A "Service" is a collection of one or more "Connectors" that share
