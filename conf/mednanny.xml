@@ -1,0 +1,28 @@
+<!--
+
+    Context configuration file for the Tomcat Manager Web App
+
+    $Id: manager.xml 303123 2004-08-26 17:03:35Z remm $
+
+-->
+
+
+<Context docBase="/usr/local/tomcat/webapps/mednanny"
+         privileged="true" antiResourceLocking="false" antiJARLocking="false">
+
+  <!-- Link to the user database we will get roles from -->
+  <ResourceLink name="users" global="UserDatabase"
+                type="org.apache.catalina.UserDatabase"/>
+
+  <Resource name="jdbc/mednanny" auth="Container" type="javax.sql.DataSource" maxActive="70" maxIdle="15" maxWait="10000" 
+	username="root" password="" 
+	driverClassName="com.mysql.jdbc.Driver" 
+	url="jdbc:mysql://localhost:3306/mednanny_orig" 
+	validationQuery="SELECT 1" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="10000" minEvictableIdleTimeMillis="60000" removeAbandoned="true" removeAbandonedTimeout="180" logAbandoned="true" /> 
+  <Resource name="jdbc/mednanny2" auth="Container" type="javax.sql.DataSource" maxActive="70" maxIdle="15" maxWait="10000" 
+	username="root" password="" 
+	driverClassName="com.mysql.jdbc.Driver" 
+	url="jdbc:mysql://localhost:3306/mednanny_orig" 
+	validationQuery="SELECT 1" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="10000" minEvictableIdleTimeMillis="60000" removeAbandoned="true" removeAbandonedTimeout="180" logAbandoned="true" /> 
+
+</Context>

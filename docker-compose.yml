@@ -22,17 +22,20 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./WebContent:/usr/local/tomcat/webapps/
+      - ./WebContent:/usr/local/tomcat/webapps/mednanny/
       - /etc/localtime:/etc/localtime:ro
       - ./conf/context.xml:/usr/local/tomcat/conf/context.xml
       - ./conf/server.xml:/usr/local/tomcat/conf/server.xml 
+      - ./conf/mednanny.xml:/usr/local/tomcat/conf/Catalina/localhost/
     depends_on:
       - db
-    restart: "no"
     environment:
       JDBC_URL: jdbc:mysql://db:3306/mednanny?connectTimeout=0&amp;socketTimeout=0&amp;autoReconnect=true
       JDBC_USER: testuser
       JDBC_PASS: root 
+    expose:
+      - "8080"
+    restart: "no"
     
   adminer: 
     container_name: adminer
