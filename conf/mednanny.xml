@@ -7,22 +7,20 @@
 -->
 
 
-<Context docBase="/usr/local/tomcat/webapps/mednanny"
-         privileged="true" antiResourceLocking="false" antiJARLocking="false">
+<Context docBase="/usr/local/tomcat/webapps/mednanny" privileged="true" antiResourceLocking="false" antiJARLocking="false">
 
   <!-- Link to the user database we will get roles from -->
-  <ResourceLink name="users" global="UserDatabase"
-                type="org.apache.catalina.UserDatabase"/>
+  <ResourceLink name="users" global="UserDatabase" type="org.apache.catalina.UserDatabase"/>
 
-  <Resource name="jdbc/mednanny" auth="Container" type="javax.sql.DataSource" maxActive="70" maxIdle="15" maxWait="10000" 
-	username="root" password="" 
-	driverClassName="com.mysql.jdbc.Driver" 
-	url="jdbc:mysql://localhost:3306/mednanny_orig" 
-	validationQuery="SELECT 1" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="10000" minEvictableIdleTimeMillis="60000" removeAbandoned="true" removeAbandonedTimeout="180" logAbandoned="true" /> 
-  <Resource name="jdbc/mednanny2" auth="Container" type="javax.sql.DataSource" maxActive="70" maxIdle="15" maxWait="10000" 
-	username="root" password="" 
-	driverClassName="com.mysql.jdbc.Driver" 
-	url="jdbc:mysql://localhost:3306/mednanny_orig" 
-	validationQuery="SELECT 1" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="10000" minEvictableIdleTimeMillis="60000" removeAbandoned="true" removeAbandonedTimeout="180" logAbandoned="true" /> 
+  <Resource name="jdbc/mednanny" auth="Container" type="javax.sql.DataSource" maxTotal="70" 
+  maxIdle="15" maxWaitMillis="10000" username="root" password="mednannypw" driverClassName="com.mysql.jdbc.Driver" 
+  url="jdbc:mysql://db:3306/mednanny" validationQuery="SELECT 1" testOnBorrow="true" testWhileIdle="true" 
+  timeBetweenEvictionRunsMillis="10000" minEvictableIdleTimeMillis="60000" removeAbandonedOnBorrow="true" removeAbandonedTimeout="180" 
+  logAbandoned="true" />
+  <Resource name="jdbc/mednanny2" auth="Container" type="javax.sql.DataSource" maxTotal="70" maxIdle="15" maxWaitMillis="10000"
+  username="root" password="mednannypw" driverClassName="com.mysql.jdbc.Driver" 
+  url="jdbc:mysql://db:3306/mednanny" validationQuery="SELECT 1" testOnBorrow="true" 
+  testWhileIdle="true" timeBetweenEvictionRunsMillis="10000" minEvictableIdleTimeMillis="60000" 
+  removeAbandonedOnBorrow="true" removeAbandonedTimeout="180" logAbandoned="true" />
 
 </Context>
